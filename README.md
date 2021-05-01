@@ -30,14 +30,15 @@ You would create a sidecar Ruby file: `app/views/posts/post.rb`
 
 ```ruby
 class Posts::Post < AutoViewModel::Base
-  requires :title
-  requires :body
+  requires :title # Raises if partial is not passed a title
+  accepts :body, default: "" # Allows default parameters for non-required attributes
 
   def title
     @title.upcase
   end
 
   def rendered_body
+    # Application and Rails provided helpers are usable in the view models
     markdown(body)
   end
 end
@@ -51,6 +52,12 @@ And update the template to use the `view` object:
 <p>
   <%= view.rendered_body %>
 </p>
+```
+
+To render the partial, use `render` like you would any other partial.
+
+```erb
+<%= render "posts/post", title: "Hello world", body: "Welcome!" %>
 ```
 
 ## Development
