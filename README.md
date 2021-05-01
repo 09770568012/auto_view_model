@@ -2,6 +2,12 @@
 
 Experimental gem to encapsulate existing partials via sidecar Ruby files.
 
+This gem doesn't replace partials, but instead builds on top of them:
+
+* Logic is encapsulated in a co-located Ruby file, not spread across helpers and external view model objects.
+* Partial arguments can be required.
+* Partial arguments can have default values, so no more `<%= my_value = "default" if !local_assigns.has_key?(:my_value) %>`
+
 ## Installation
 
 1. Add `auto_view_model` to your Rails application's `Gemfile`.
