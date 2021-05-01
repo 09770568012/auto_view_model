@@ -2,6 +2,8 @@
 
 require "rails"
 
+require_relative "template_patch"
+
 module AutoViewModel
   class Engine < Rails::Engine
     initializer :set_view_autoload_path, before: :set_load_path do |app|
