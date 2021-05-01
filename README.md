@@ -18,7 +18,7 @@ e.g.
 
 Given the template `app/views/posts/_post.html.erb`:
 
-```ruby
+```erb
 <h1><%= title.upcase %></h1>
 
 <p>
@@ -45,7 +45,7 @@ end
 
 And update the template to use the `view` object:
 
-```
+```erb
 <h1><%= view.title %></h1>
 
 <p>
